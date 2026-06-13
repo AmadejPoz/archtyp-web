@@ -1,0 +1,203 @@
+/* Page-scoped styles for the Contact / Request access form.
+   Globals are reused wherever possible; this module only adds the segmented
+   intent picker, the field grid and the success panel layout. */
+
+/* --- Intent picker (segmented, selectable cards) --- */
+.intents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.intent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  text-align: left;
+  padding: 0.95em 1.05em;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  color: var(--text-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.intent:hover {
+  border-color: var(--border-strong);
+  color: var(--text-1);
+}
+
+.intent:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.intent[aria-pressed="true"] {
+  color: var(--text-1);
+  border-color: var(--border-accent);
+  background: var(--ink-850);
+  box-shadow:
+    0 0 0 1px var(--border-accent),
+    var(--glow-md);
+}
+
+/* small turquoise marker that reads as "selected" */
+.intentDot {
+  position: absolute;
+  top: 0.9em;
+  right: 0.95em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out);
+}
+
+.intent[aria-pressed="true"] .intentDot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: var(--glow-sm);
+}
+
+.intentLabel {
+  padding-right: 1.2em;
+}
+
+/* the hint for the currently selected intent, shown beneath the picker */
+.intentHint {
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+}
+
+/* --- Field grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.span2 {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .span2 {
+    grid-column: auto;
+  }
+}
+
+/* spacing between stacked blocks inside the form */
+.block + .block {
+  margin-top: var(--space-6);
+}
+
+.fieldsetLabel {
+  display: block;
+  margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  margin-top: var(--space-7);
+}
+
+.formNote {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  margin: 0;
+}
+
+/* form-level error banner (network / server failure) */
+.formError {
+  margin-top: var(--space-5);
+  padding: 0.85em 1.05em;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--danger) 55%, transparent);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  color: var(--text-1);
+  font-size: var(--fs-sm);
+}
+
+/* visually-hidden honeypot, kept in the layout flow but off-screen */
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Success panel --- */
+.success {
+  text-align: center;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-9) var(--space-7);
+}
+
+.successMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: var(--ink-900);
+  background: var(--accent);
+  box-shadow: var(--glow-md);
+}
+
+.successTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  color: var(--text-1);
+  letter-spacing: var(--ls-snug);
+  margin: 0;
+}
+
+.successBody {
+  font-size: var(--fs-lead);
+  color: var(--text-2);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* fallback skeleton shown while the client form hydrates inside Suspense */
+.fallback {
+  min-height: 22rem;
+  border-radius: var(--radius-lg);
+  border: var(--hairline);
+  background: var(--surface);
+  box-shadow: var(--sheen);
+}

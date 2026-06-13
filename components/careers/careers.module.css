@@ -1,0 +1,161 @@
+/* ============================================================
+   Careers — page-scoped styling for the open-roles list.
+   Globals owns the hero, feature-grid and cta-band. This module
+   only adds the premium roles list (a hairline-ruled set of rows,
+   not a table) and its hover toward turquoise.
+   ============================================================ */
+
+.roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* top hairline so the first row reads as part of a ruled set */
+  border-top: var(--hairline);
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  padding: var(--space-6) var(--space-4);
+  border-bottom: var(--hairline);
+  text-decoration: none;
+  transition:
+    background var(--dur-mid) var(--ease-out),
+    padding-left var(--dur-mid) var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out);
+}
+
+/* a quiet turquoise edge that grows in on hover/focus */
+.row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  box-shadow: var(--glow-sm);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.row:hover,
+.row:focus-visible {
+  background: var(--turq-haze);
+  border-bottom-color: var(--border-accent);
+  padding-left: var(--space-5);
+  outline: none;
+}
+
+.row:hover::before,
+.row:focus-visible::before {
+  transform: scaleY(1);
+}
+
+/* keyboard focus stays clearly visible without the default offset box */
+.row:focus-visible {
+  box-shadow: var(--glow-ring);
+  border-radius: var(--radius-sm);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  letter-spacing: var(--ls-snug);
+  line-height: var(--lh-snug);
+  color: var(--text-1);
+  margin: 0;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.row:hover .title,
+.row:focus-visible .title {
+  color: var(--turq-bright);
+  text-shadow: var(--glow-text);
+}
+
+.team {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-4);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* thin dot separators between meta items */
+.metaItem + .metaItem::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: var(--space-3);
+  border-radius: 50%;
+  background: var(--text-4);
+  vertical-align: middle;
+}
+
+.arrow {
+  display: inline-flex;
+  flex: none;
+  margin-left: var(--space-3);
+  color: var(--text-3);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.row:hover .arrow,
+.row:focus-visible .arrow {
+  color: var(--turq-bright);
+  transform: translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row,
+  .row::before,
+  .arrow,
+  .title {
+    transition: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  /* keep the arrow aligned with the meta on a wrapped row */
+  .meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
