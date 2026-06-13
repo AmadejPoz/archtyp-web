@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ds/Button";
 import { ParticleField } from "@/components/motion/ParticleField";
 import { Parallax } from "@/components/motion/Parallax";
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import { home, assets } from "@/lib/content";
 
 export function Hero() {
@@ -11,13 +11,11 @@ export function Hero() {
   return (
     <header className="hero">
       <Parallax speed={0.12} className="hero__media">
-        <Image
-          src={assets.heroBrain}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover", opacity: 0.5 }}
+        <AmbientVideo
+          mp4={assets.media.motionLogo.mp4}
+          webm={assets.media.motionLogo.webm}
+          poster={assets.media.motionLogo.poster}
+          style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }}
         />
       </Parallax>
       <div className="hero__scrim" aria-hidden />

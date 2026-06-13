@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ds/SectionHeading";
 import { StatBlock } from "@/components/ds/StatBlock";
 import { Button } from "@/components/ds/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import { FacultyRow } from "@/components/technology/FacultyRow";
 import { CognitiveArchitecture } from "@/components/technology/CognitiveArchitecture";
 import { technology, faculties, assets } from "@/lib/content";
@@ -22,20 +22,13 @@ export default function TechnologyPage() {
       {/* 1 — Hero. The motion-logo plays quietly behind the headline. */}
       <section className="page-hero">
         <div className="page-hero__bg" aria-hidden />
-        <AmbientVideo
-          mp4={assets.media.motionLogo.mp4}
-          webm={assets.media.motionLogo.webm}
-          poster={assets.media.motionLogo.poster}
-          style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            opacity: 0.4,
-            pointerEvents: "none",
-          }}
+        <Image
+          src={assets.heroBrain}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", opacity: 0.4, zIndex: 0 }}
         />
 
         <div className="sec page-hero__in">
@@ -88,7 +81,12 @@ export default function TechnologyPage() {
         </Reveal>
       </section>
 
-      {/* 3 — The four faculties, expanded as alternating editorial rows. */}
+      {/* 3 — Cognitive architecture diagram (DMN first). */}
+      <section className="sec sec-y">
+        <CognitiveArchitecture />
+      </section>
+
+      {/* 4 — The four faculties, expanded as alternating editorial rows. */}
       <section className="sec sec-yt">
         {faculties.map((faculty, i) => (
           <FacultyRow key={faculty.name} faculty={faculty} index={i} />
@@ -109,11 +107,6 @@ export default function TechnologyPage() {
             />
           ))}
         </Reveal>
-      </section>
-
-      {/* 5 — Cognitive architecture diagram. */}
-      <section className="sec sec-y">
-        <CognitiveArchitecture />
       </section>
 
       {/* 6 — Close. One dominant CTA. */}
