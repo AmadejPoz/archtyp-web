@@ -13,9 +13,9 @@ export default function HomePage() {
       <Hero />
       <TheShift />
       <Faculties />
+      <RobotTeaser />
       <Archetypes />
       <Induit />
-      <RobotTeaser />
       <Philosophy />
       <Close />
     </>

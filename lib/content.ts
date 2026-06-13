@@ -69,6 +69,7 @@ export const assets = {
   lockupHorizontal: "/brand/lockup-horizontal.svg",
   heroBrain: "/img/hero-brain.jpg",
   robot: "/img/alto-store.jpg",
+  altoSpec: "/img/alto-spec.png",
   dashboardDark: "/img/induit-dashboard-dark.png",
   dashboardLight: "/img/induit-dashboard-light.png",
   flow: "/img/induit-flow.png",
@@ -88,7 +89,7 @@ export const assets = {
 export const primaryNav: NavLink[] = [
   { label: "Technology", href: "/technology" },
   { label: "INDUIT", href: "/induit" },
-  { label: "Archetypes", href: "/archetypes" },
+  { label: "Alto", href: "/alto" },
   { label: "Culture", href: "/culture" },
 ];
 
@@ -103,7 +104,7 @@ export const footer = {
         { label: "Technology", href: "/technology" },
         { label: "INDUIT", href: "/induit" },
         { label: "Archetypes", href: "/archetypes" },
-        { label: "Alto", href: "/robot" },
+        { label: "Alto", href: "/alto" },
       ],
     },
     {
@@ -218,11 +219,11 @@ export const home = {
     secondary: { label: "Explore INDUIT", href: "/induit" },
   },
   robot: {
-    badge: "Coming soon",
+    badge: "Now in preorder",
     eyebrow: "Alto",
     title: "And a body built for the mind",
-    lead: "Until now the mind has lived in other people's machines. Soon it will have one of its own. Its name is Alto.",
-    cta: { label: "Meet Alto", href: "/robot" },
+    lead: "Alto is the first body we are deploying. A retail host co-designed by Temi and ARCHTYP, with more than 1000 preorders all over the world.",
+    cta: { label: "Meet Alto", href: "/alto" },
   },
   philosophy: {
     line: ["We are building one of the most important technologies of the coming century. It has to be built with ", "care", "."],
@@ -431,11 +432,20 @@ export const induit = {
    ---------------------------------------------------------------- */
 export const robot = {
   name: "Alto",
-  badge: "Coming soon",
-  eyebrow: "Alto",
-  title: "A body built for the mind",
-  lead: "Until now the mind has lived in other people's machines. Soon it will have one of its own. Alto is a robot designed from the ground up around the cognitive layer.",
-  registerCta: { label: "Register interest", href: "/contact?intent=register-interest" },
+  badge: "Now in preorder",
+  eyebrow: "Alto, the first archetype",
+  title: "The smartest robot in the world.",
+  lead: "Alto is the first body we are deploying. A retail host co-designed by Temi and ARCHTYP, built from the ground up around the cognitive layer.",
+  positioning:
+    "Alto is our retail archetype, the Host. The same mind that runs across every ARCHTYP deployment, now in a body of its own, on the floor and ready for work.",
+  coDesign: "Co-designed by Temi and ARCHTYP",
+  stats: [
+    { value: "1000+", label: "Preorders, all over the world" },
+    { value: "01", label: "The first archetype we deploy" },
+    { value: "40+", label: "Languages spoken natively" },
+  ],
+  registerCta: { label: "Preorder Alto", href: "/contact?intent=register-interest" },
+  specSheet: assets.altoSpec,
   specs: [
     ["Height", "1200 mm"],
     ["Width", "450 mm"],

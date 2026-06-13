@@ -1,0 +1,99 @@
+/* Page-scoped layout for the Alto product page. Shared global classes cover
+   most of it; this adds the centred unveiling hero, the spec-sheet frame, the
+   co-design callout and the sensor block. Colours and rhythm come from tokens. */
+
+/* Re-centre the shared turquoise glow behind the hero photo. */
+.stageSection .glow {
+  left: 50%;
+  top: 4%;
+  width: clamp(360px, 64vw, 720px);
+  height: clamp(440px, 70vh, 760px);
+  transform: translateX(-50%);
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-7);
+  text-align: center;
+}
+
+.stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 62ch;
+}
+
+.codesign {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  color: var(--text-1);
+  border: 1px solid var(--border-accent);
+  background: var(--turq-haze);
+  box-shadow: var(--glow-sm);
+  padding: 0.5em 1.05em;
+  border-radius: var(--radius-pill);
+}
+
+.positioning {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-normal);
+  color: var(--text-2);
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* The full specification sheet (portrait infographic), framed. */
+.sheet {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  box-shadow:
+    var(--shadow-lg),
+    0 0 60px rgba(0, 206, 209, 0.12);
+  background: var(--ink-950);
+}
+.sheet :global(img) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.suite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.sensors {
+  justify-content: center;
+}
+.note {
+  margin-top: var(--space-7);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.01em;
+  color: var(--text-4);
+  max-width: 52ch;
+}

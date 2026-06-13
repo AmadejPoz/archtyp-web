@@ -31,6 +31,12 @@ export function AmbientVideo({
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
+    // React does not reliably reflect the `muted` attribute to the DOM
+    // property, so production builds can present the video as non-muted and the
+    // browser BLOCKS autoplay (it plays in dev only because of the double
+    // render). Force it on the element so muted autoplay is always allowed.
+    v.muted = true;
+    v.defaultMuted = true;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const tryPlay = () => {
