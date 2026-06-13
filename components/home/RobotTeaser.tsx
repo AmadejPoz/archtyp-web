@@ -12,14 +12,17 @@ export function RobotTeaser() {
       <div className="robot__glow" aria-hidden />
       <div className="robot__grid">
         <Reveal className="robot__stage">
-          <Image
-            className="robot__img drift"
-            src={assets.robot}
-            alt="Alto, the ARCHTYP robot"
-            width={314}
-            height={1006}
-            sizes="(max-width: 980px) 60vw, 30vw"
-          />
+          <figure className="alto-shot">
+            <Image
+              className="alto-shot__img"
+              src={assets.robot}
+              alt="Alto, the ARCHTYP robot, on a retail floor"
+              fill
+              sizes="(max-width: 980px) 90vw, 45vw"
+              style={{ objectFit: "cover" }}
+            />
+            <span className="alto-shot__vignette" aria-hidden />
+          </figure>
         </Reveal>
         <Reveal>
           <Badge variant="soon">{home.robot.badge}</Badge>

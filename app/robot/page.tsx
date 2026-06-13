@@ -27,15 +27,18 @@ export default function RobotPage() {
         <div className={cn("robot__glow", styles.glow)} aria-hidden />
         <div className={styles.hero}>
           <Reveal className={cn("robot__stage", styles.stage)}>
-            <Image
-              className="robot__img drift"
-              src={assets.robot}
-              alt="Alto, the ARCHTYP robot"
-              width={314}
-              height={1006}
-              priority
-              sizes="(max-width: 980px) 60vw, 30vw"
-            />
+            <figure className="alto-shot">
+              <Image
+                className="alto-shot__img"
+                src={assets.robot}
+                alt="Alto, the ARCHTYP robot, on a retail floor"
+                fill
+                priority
+                sizes="(max-width: 980px) 92vw, 860px"
+                style={{ objectFit: "cover" }}
+              />
+              <span className="alto-shot__vignette" aria-hidden />
+            </figure>
           </Reveal>
           <Reveal className={styles.intro} delay={120}>
             <Badge variant="soon" dot>

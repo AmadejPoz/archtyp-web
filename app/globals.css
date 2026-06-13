@@ -2015,6 +2015,54 @@ a.atp-tag:hover {
   margin-top: var(--space-6);
 }
 
+/* Framed, in-context product photo (Alto). Landscape, vignetted, soft glow,
+   slow ken-burns at rest. Used on the homepage teaser and the robot page. */
+.alto-shot {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 60px rgba(0, 206, 209, 0.16);
+  isolation: isolate;
+}
+.alto-shot__img {
+  object-fit: cover;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .alto-shot__img {
+    animation: alto-kenburns 22s var(--ease-in-out) infinite alternate;
+  }
+  @keyframes alto-kenburns {
+    from {
+      transform: scale(1.03);
+    }
+    to {
+      transform: scale(1.09);
+    }
+  }
+}
+.alto-shot__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(130% 110% at 50% 36%, transparent 52%, rgba(6, 8, 16, 0.5) 100%),
+    linear-gradient(180deg, transparent 62%, rgba(6, 8, 16, 0.5) 100%);
+}
+.alto-shot__badge {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  z-index: 2;
+}
+
 /* ---------- PHILOSOPHY ---------- */
 .philo {
   position: relative;
