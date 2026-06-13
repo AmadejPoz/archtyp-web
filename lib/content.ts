@@ -155,17 +155,17 @@ export const faculties: Faculty[] = [
     role: "It grasps intent",
     short: "It grasps what they actually mean.",
     glyph: assets.glyphs.integrate,
-    long: "Beyond words to intent. The mind reads context, history and the systems around it, then decides what the moment actually calls for. It connects to the infrastructure you already run rather than asking the world to change for it.",
+    long: "Beyond words to intent. The mind reads the room: who is present, where things are, and what the moment calls for. Spatial and contextual understanding, grounded in the history and the systems you already run.",
     jung: "Individuation. The merging of the conscious and the subconscious into a unified whole. The Connector.",
   },
   {
     tint: "speak",
-    name: "Speak",
-    role: "It answers",
-    short: "It answers in their language, and means it.",
+    name: "Speak and act",
+    role: "It answers and acts",
+    short: "It answers in their language, then acts on it.",
     glyph: assets.glyphs.speak,
-    long: "Natural, multilingual conversation that carries warmth, not a script. The mind switches language the instant it hears one, and holds a tone that feels considered rather than canned.",
-    jung: "The Persona, the mask the archetype wears when it meets the world. Personality through language and empathy.",
+    long: "Natural, multilingual conversation that turns into action. The mind does not only reply, it moves: it navigates the floor, guides to the shelf, calls a colleague, returns to base. Autonomous and proactive, it acts the moment the situation calls for it.",
+    jung: "The Persona, the mask the archetype wears when it meets the world. Personality through language, expressed in action.",
   },
   {
     tint: "remember",
@@ -348,10 +348,10 @@ export const archetypesIndex = {
 export const technology = {
   eyebrow: "Technology",
   title: "DMN, the cognitive core",
-  lead: "One mind, hardware agnostic, running at the edge. DMN is the layer that turns a service robot into something a person can talk to, be known by, and trust.",
+  lead: "One mind, hardware agnostic, running at the edge. DMN turns a service robot into something a person can talk to, be known by, and trust. It understands the space it is in, and moves through it on its own.",
   hero: {
     headline: ["A mind, not a ", "script", "."],
-    sub: "DMN combines recognition, understanding, speech and memory into a single cognitive loop that runs on the robots you already deploy.",
+    sub: "DMN fuses recognition, understanding, speech, memory and movement into one cognitive loop, so the robot does not just respond, it acts. Autonomous and proactive, on the hardware you already deploy.",
   },
   pillarsIntro: {
     eyebrow: "The four faculties",

@@ -2258,3 +2258,60 @@ a.atp-tag:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Cognitive architecture diagram (Technology) ---------- */
+.arch-diagram {
+  width: 100%;
+}
+.arch-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.arch-diagram .n-fill {
+  fill: var(--ink-800);
+}
+.arch-diagram .n-stroke {
+  stroke: var(--border-soft);
+}
+.arch-diagram .core-stroke {
+  stroke: var(--border-accent);
+}
+.arch-diagram .t-title {
+  fill: var(--text-strong);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.arch-diagram .t-eyebrow {
+  fill: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 2.4px;
+}
+.arch-diagram .t-sub {
+  fill: var(--text-body);
+  font-family: var(--font-body);
+}
+.arch-diagram .t-accent {
+  fill: var(--turq);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+.arch-diagram .line {
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1.5;
+  fill: none;
+}
+.arch-diagram .line-live {
+  stroke: var(--turq);
+  stroke-width: 2;
+  fill: none;
+}
+.arch-diagram .ic {
+  stroke: var(--turq);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ds/SectionHeading";
 import { StatBlock } from "@/components/ds/StatBlock";
-import { Card } from "@/components/ds/Card";
 import { Button } from "@/components/ds/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import { FacultyRow } from "@/components/technology/FacultyRow";
+import { CognitiveArchitecture } from "@/components/technology/CognitiveArchitecture";
 import { technology, faculties, assets } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function TechnologyPage() {
-  const { eyebrow, title, lead, hero, pillarsIntro, proof, architecture } = technology;
+  const { eyebrow, title, lead, hero, pillarsIntro, proof } = technology;
 
   return (
     <>
@@ -111,42 +111,9 @@ export default function TechnologyPage() {
         </Reveal>
       </section>
 
-      {/* 5 — Architecture. */}
-      <section className="sec sec-yt">
-        <Reveal>
-          <SectionHeading eyebrow={architecture.eyebrow} title={architecture.title} />
-        </Reveal>
-        <div style={{ height: "var(--space-8)" }} />
-        <div className="feature-grid">
-          {architecture.layers.map((layer, i) => (
-            <Reveal key={layer.name} delay={i * 70}>
-              <Card accentEdge>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: "var(--fw-bold)",
-                    fontSize: "var(--fs-h3)",
-                    color: "var(--text-1)",
-                    margin: "0 0 var(--space-3)",
-                    letterSpacing: "var(--ls-snug)",
-                  }}
-                >
-                  {layer.name}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "var(--fs-sm)",
-                    lineHeight: "var(--lh-normal)",
-                    color: "var(--text-3)",
-                    margin: 0,
-                  }}
-                >
-                  {layer.body}
-                </p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
+      {/* 5 — Cognitive architecture diagram. */}
+      <section className="sec sec-y">
+        <CognitiveArchitecture />
       </section>
 
       {/* 6 — Close. One dominant CTA. */}
